@@ -10,7 +10,7 @@ services:
       - MYSQL_USER=wordpress
       - MYSQL_PASSWORD=wordpress2009
     volumes:
-      - mysqldb:/var/lib/mysql
+      - /hwdata/mysql:/var/lib/mysql
     ports:
       - 3306:3306
   wordpress:
@@ -26,7 +26,4 @@ services:
       - 80:80
     working_dir: /var/www/html
     volumes:
-      - wordpress:/var/www/html
-volumes:
-  wordpress: /hwdata/wordpress
-  mysqldb: /hwdata/mysql 
+      - /hwdata/wordpress:/var/www/html
